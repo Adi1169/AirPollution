@@ -1,0 +1,7 @@
+fetch_air_pollution:
+  cron: "*/1 * * * *" #it will retrieve data every 1 minute
+  class: "ImportAirPollutionWorker"
+
+fetch_historial_air_pollution:
+  cron: "0 0 1 * *" #it will retrieve data 12:00 AM, on day 1 of the month
+  class: "ImportHistoricalAirPollutionWorker"

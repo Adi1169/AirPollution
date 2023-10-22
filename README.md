@@ -8,17 +8,19 @@ OpenWeather Air Pollution Api used to get some analytical data
 * System dependencies
 
 * Configuration
+    Application is using Rails Credentials to maintain secrets like openweather api key.
+    Please setup rails credential with weather:api_key in yml
 
 * Database creation
-    rails db:create
+    - rails db:create
 
 * Database initialization
 
 
 * How to run the test suite
-    bundle exex rspec spec
+   - bundle exex rspec spec
 
 * Services (job queues, cache servers, search engines, etc.)
-    redis
-    sidekiq
+  -  redis
+  -  sidekiq
 
