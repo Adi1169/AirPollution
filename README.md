@@ -1,26 +1,60 @@
-# README
+##### Prerequisites
 
-OpenWeather Air Pollution Api used to get some analytical data
+The setups steps expect following tools installed on the system.
 
-* Ruby version
-    3.0.0
+- Github
+- Ruby [2.4.0](https://github.com/organization/project-name/blob/master/.ruby-version#L1)
+- Rails [5.0.2](https://github.com/organization/project-name/blob/master/Gemfile#L12)
 
-* System dependencies
+##### 1. Check out the repository
 
-* Configuration
-    Application is using Rails Credentials to maintain secrets like openweather api key.
-    Please setup rails credential with weather:api_key in yml
+```bash
+git clone git@github.com:organization/project-name.git
+```
 
-* Database creation
-    - rails db:create
+##### 2. Run Bundle Install
 
-* Database initialization
+```bash
+bundle install
+```
 
 
-* How to run the test suite
-   - bundle exex rspec spec
+##### 2. Create database.yml file
 
-* Services (job queues, cache servers, search engines, etc.)
-  -  redis
-  -  sidekiq
+Copy the sample database.yml file and edit the database configuration as required.
 
+```bash
+cp config/database.yml.sample config/database.yml
+```
+
+##### 3. Create and setup the database
+
+Run the following commands to create and setup the database.
+
+```ruby
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
+
+##### 4. Start the Rails server
+
+You can start the rails server using the command given below.
+
+```ruby
+bundle exec rails s
+```
+
+And now you can visit the site with the URL http://localhost:3000
+
+##### 5. Start the Sidekiq
+
+You can start Sidekiq which is used for running background cron-jobs
+
+```ruby
+bundle exec sidekiq
+```
+##### 5. Run Tests
+
+```ruby
+bundle exec rspec spec
+```
