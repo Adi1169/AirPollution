@@ -22,10 +22,6 @@ class AirPollutionService
       raise AirPollutionServiceError, response['message']
     end
     pollution_data = JSON.parse(response.body)['list']
-    result = []
-    pollution_data.each do |pollution|
-      result << {aqi: pollution['main']['aqi'], dt: pollution['dt'], components: pollution['components'].transform_keys(&:to_sym)}
-    end
-    result
+    pollution_data.map { |pollution| {aqi: pollution['main']['aqi'], dt: pollution['dt'], components: pollution['components'].transform_keys(&:to_sym)} }
   end
 end

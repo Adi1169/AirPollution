@@ -20,4 +20,3 @@ class ImportHistoricalAirPollutionWorker
     Rails.logger.info("Finished fetching historical air pollution data")
   end
 end
-  
