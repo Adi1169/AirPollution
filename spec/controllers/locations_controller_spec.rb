@@ -37,6 +37,7 @@ RSpec.describe LocationsController, type: :controller do
         expect {
           post :create_location_using_coordinates, params: valid_params
         }.to change(Location, :count).by(1)
+        expect(response).to have_http_status(:created)
         expect(JSON.parse(response.body)).to eq({"country"=>"US", "lat"=>40.712, "lon"=>-74.006, "name"=>"New York", "state"=>"New York"})
       end
     end
@@ -62,6 +63,7 @@ RSpec.describe LocationsController, type: :controller do
         expect {
           post :create_location_direct, params: valid_params
         }.to change(Location, :count).by(1)
+        expect(response).to have_http_status(:created)
         expect(JSON.parse(response.body)).to eq({"country"=>"US", "lat"=>40.712, "lon"=>-74.006, "name"=>"New York", "state"=>"New York"})
       end
     end

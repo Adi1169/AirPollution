@@ -13,7 +13,7 @@ class LocationsController < ApplicationController
     ls = LocationService.new(Rails.application.credentials.dig(:open_weather, :api_key))
     location = ls.reverse(params[:lat], params[:lon])
     Location.create!(location)
-    render json: location
+    render json: location, status: :created
   rescue StandardError => e
     render json: { error: e.message }, status: :bad_request
   end
@@ -22,7 +22,7 @@ class LocationsController < ApplicationController
     ls = LocationService.new(Rails.application.credentials.dig(:open_weather, :api_key))
     location = ls.direct(params[:q])
     Location.create!(location)
-    render json: location
+    render json: location, status: :created
   rescue StandardError => e
     render json: { error: e.message }, status: :bad_request
   end
